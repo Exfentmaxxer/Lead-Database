@@ -1,0 +1,44 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+docs/
+
+# Node modules
+node_modules/
+backend/node_modules/
+
+# Database files
+backend/*.db
+backend/*.db-shm
+backend/*.db-wal
+backend/*.backup.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Test files
+backend/test.js
+
+# SVG icons (only need PNG for production)
+frontend/*.svg
+
+# Temporary files
+tmp/
+temp/

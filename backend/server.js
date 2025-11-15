@@ -285,12 +285,20 @@ process.on('SIGTERM', () => {
 });
 
 // Start server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log('🚀 Lead Database Server Running');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log(`📡 Port: ${PORT}`);
-  console.log(`🌐 Local: http://localhost:${PORT}`);
-  console.log(`📱 Network: http://<your-ip>:${PORT}`);
+
+  if (process.env.RAILWAY_STATIC_URL) {
+    console.log(`🌍 Railway URL: https://${process.env.RAILWAY_STATIC_URL}`);
+  } else if (process.env.RENDER_EXTERNAL_URL) {
+    console.log(`🌍 Render URL: ${process.env.RENDER_EXTERNAL_URL}`);
+  } else {
+    console.log(`🌐 Local: http://localhost:${PORT}`);
+    console.log(`📱 Network: http://<your-ip>:${PORT}`);
+  }
+
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 });
